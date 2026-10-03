@@ -2,7 +2,7 @@
 
 A self-hosted read-later pipeline for Kindle.
 
-Save public long-form articles from desktop or Android, send one article immediately, or collect several articles into a reading list and send them together as a single EPUB digest.
+Save public long-form articles from desktop, Android, or iPhone/iPad. Send one article immediately, or collect several articles into a reading list and send them together as a single EPUB digest.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/gubblestudios/kindle-it)
 
@@ -13,6 +13,7 @@ Save public long-form articles from desktop or Android, send one article immedia
 - **EPUB digest:** combine queued articles into one EPUB with separate chapters and send it to Kindle.
 - **Desktop bookmarks:** one-click "Send to Kindle" and "Add to Reading List" bookmarklets.
 - **Android sharing:** install Kindle It as a PWA and share an article to either send it now or add it to the reading list.
+- **iPhone/iPad sharing:** use an Apple Shortcut from the iOS/iPadOS Share Sheet for the same send-now or queue workflow.
 - **Duplicate protection:** the reading list will not queue the same URL twice.
 
 Kindle It works especially well for public Substack posts and other article pages that allow server-side fetching. Some sites block automated fetches or require a logged-in browser session; those may return a 403 or fail to extract.
@@ -116,7 +117,7 @@ You can use the Deploy button above or deploy with the Vercel CLI.
 
 After deployment, add the same environment variables to the Vercel project. Environment-variable changes require a new deployment.
 
-Your permanent production URL should be used for bookmarks and Android setup, not a deployment-specific URL.
+Your permanent production URL should be used for bookmarks and mobile setup, not a deployment-specific URL.
 
 ## 7. Desktop bookmarklets
 
@@ -169,6 +170,18 @@ On your Android phone:
 
 The PWA uses Android's Web Share Target support.
 
+## 10. iPhone / iPad Share
+
+iPhone and iPad use Apple Shortcuts rather than the Android PWA Share Target.
+
+Create a Share Sheet shortcut that receives a URL, asks whether to **📖 Send Now** or **➕ Add to Reading List**, and calls the same Kindle It API endpoints used by Android and desktop.
+
+Full step-by-step instructions:
+
+[Set up Kindle It on iPhone / iPad](./docs/ios-shortcut.md)
+
+Apple Shortcuts supports running shortcuts from the Share Sheet and making web requests with **Get Contents of URL**.
+
 ## Security notes
 
 - All sensitive values belong in environment variables.
@@ -181,6 +194,7 @@ The PWA uses Android's Web Share Target support.
 
 - Public URL fetching is the core extraction method.
 - Sites that block server-side fetching may return `403`.
+- Android can use the installed PWA directly as a Share target. iPhone/iPad uses Apple Shortcuts from the Share Sheet instead.
 - Logged-in/paywalled content is not currently captured from the browser session.
 - Images, video, audio, embeds, SVGs, and other media are intentionally stripped for a cleaner Kindle reading experience.
 

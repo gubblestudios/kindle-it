@@ -58,7 +58,8 @@ export default function Home() {
         </p>
         <p>
           On Android, install this site as an app and use the system Share menu
-          to send or queue articles.
+          to send or queue articles. On iPhone and iPad, use an Apple Shortcut
+          from the Share Sheet for the same workflow.
         </p>
       </section>
 
