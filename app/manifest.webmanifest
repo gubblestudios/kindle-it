@@ -1,7 +1,7 @@
 {
   "name": "Kindle It",
   "short_name": "Kindle It",
-  "description": "Send articles to my Kindle",
+  "description": "Send articles and reading digests to your Kindle",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f1efe7",

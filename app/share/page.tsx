@@ -37,7 +37,7 @@ export default function SharePage() {
 
     if (!secret) {
       setStatus(
-        "Setup required. Open kindle-it.vercel.app/setup first."
+        "Setup required. Open /setup in this app first."
       );
       return;
     }
@@ -66,7 +66,7 @@ export default function SharePage() {
       if (response.status === 401) {
         localStorage.removeItem("kindleSecret");
         setStatus(
-          "Your saved secret was rejected. Visit /setup and save it again."
+          "Your saved secret was rejected. Open /setup and save it again."
         );
         return;
       }
