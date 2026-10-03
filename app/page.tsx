@@ -57,6 +57,11 @@ export default function Home() {
           your Reading List and send them together as one EPUB digest.
         </p>
         <p>
+          Send Now works without a database. The shared Reading List is optional
+          and needs persistent storage; the reference implementation uses
+          Upstash, but you can adapt it to an existing database.
+        </p>
+        <p>
           On Android, install this site as an app and use the system Share menu
           to send or queue articles. On iPhone and iPad, use an Apple Shortcut
           from the Share Sheet for the same workflow.
@@ -66,9 +71,10 @@ export default function Home() {
       <section style={{ marginTop: 32 }}>
         <h2>First time here?</h2>
         <p>
-          This app must be configured with your own Kindle address, Gmail app
-          password, app secret, and Upstash Redis credentials before use. See
-          the project README for setup instructions.
+          Configure your Kindle address, Gmail app password, and app secret to
+          start using Send Now. Shared Reading List storage is optional. See the
+          project README for setup instructions and guidance for using an
+          existing database.
         </p>
       </section>
     </main>
